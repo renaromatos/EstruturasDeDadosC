@@ -26,4 +26,3 @@ int main(){
     int **matriz = alocaMatriz(9999999, 9999999);//consumiu os 16gb do meu pc
     liberaMatriz;
 }
-
