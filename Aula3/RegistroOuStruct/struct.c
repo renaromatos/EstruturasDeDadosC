@@ -10,7 +10,6 @@ struct Registro{
     int matricula;
     char graduacao[TAMANHOMAX];
     char endereco[TAMANHOMAX];
-
 };
 
 typedef struct Registro MeuRegistro;
@@ -29,20 +28,20 @@ MeuRegistro* alocaEstrutura(int N){
 void preencheEstrutura(MeuRegistro *estrutura, int n){
 
     for (int i = 0; i < n; i++){
-        printf("Digite o nome %d: \n", i+1);
+        printf("Digite o Nome %d:\n", i+1);
         fgets(estrutura[i].nome, TAMANHOMAX, stdin);
-        printf("Digite o sobrenome %d \n", i+1);
+        printf("Digite o Sobrenome %d:\n", i+1);
         fgets(estrutura[i].sobrenome, TAMANHOMAX, stdin);
-        printf("Digite a idade %d: \n", i+1);
-        fgets("%d", &estrutura[i].idade, TAMANHOMAX);
+        printf("Digite a idade%d:\n", i+1);
+        scanf("%d", &estrutura[i].idade);
         getchar();
-        printf("Digite a matricula %d: \n", i+1);
-        fgets("%d", &estrutura[i].matricula, TAMANHOMAX);
-        printf("Digite a graduação %d: \n", i+1);
-        fgets("%d", &estrutura[i].graduacao, TAMANHOMAX);
-        printf("Digite o endereço %d: \n", i+1);
-        fgets("%d", &estrutura[i].endereco, TAMANHOMAX);
-
+        printf("Digite a matricula%d:\n", i+1);
+        scanf("%d", &estrutura[i].matricula);
+        getchar();
+        printf("Digite o Curso de Grad %d:\n", i+1);
+        fgets(estrutura[i].graduacao, TAMANHOMAX, stdin);
+        printf("Digite o Endereco %d:\n", i+1);
+        fgets(estrutura[i].endereco, TAMANHOMAX, stdin);
     }
 }
 
@@ -62,7 +61,6 @@ char* nomeDoAlunoMaisVelho(MeuRegistro *estrutura, int n){
     else{
         return -1;
     } 
-
     return estrutura[indiceMaiorIdade].nome;
 }
 
@@ -72,10 +70,7 @@ float mediaDeIdadeDosAlunos(MeuRegistro* estrutura, int n){
     for (int i = 0; i < n; i++){
         soma += estrutura[i].idade;
     }
-
     return (float)soma/(float)n;
-    
-
 }
 
 int main(){
@@ -86,6 +81,6 @@ int main(){
     int N = 10;
     MeuRegistro *meusRegistros = alocaEstrutura(N);
     preencheEstrutura(meusRegistros, N);
-    printf("%szn", nomeDoAlunoMaisVelho(meusRegistros, N));
+    printf("%s\n", nomeDoAlunoMaisVelho(meusRegistros, N));
     printf("%f\n", mediaDeIdadeDosAlunos(meusRegistros, N));
 }
