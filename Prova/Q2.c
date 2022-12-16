@@ -36,15 +36,19 @@ Aluno* alocaAluno(int n){
 }
 
 void insereAluno(Aluno *aluno){
-    *((*aluno).matricula) = 10;//scanf("%d", *(aluno).matricula)
-    (*aluno).nome = "Renaro Matos";
-    (*aluno).numeroDeDisciplina = 1;
-    
+    *((*aluno).matricula) = scanf("%d", *(aluno)->matricula);
+    (*aluno).nome = scanf("%c", *(aluno)->nome);
+    (*aluno).numeroDeDisciplina = 1; 
     *((*aluno).listaDisciplina[0].codigo) = 1;
     (*aluno).listaDisciplina[0].nome = "Estrutura de dados";
-
 }
 
+
+
 int main(){
+
+    alocaDisciplina(1);
+    alocaAluno(1);
+    insereAluno;
 
 }
